@@ -48,8 +48,6 @@ func rotate1(nums []int, k int) {
 		情况3：当current==start但count<numLens,新的start=start+1,需要证明新的start并没有被访问过，且新的循环元素也没有被原有循环遍历过
 		当start+1没有被访问过，那么start+1起的循环元素也不会与原来的重复，不然start+1也应该重复
 		当start+1已经被访问过，count=x,那么从start经过2x能访问start+2,经过3x能访问start+3，由情况2可知，一个循环中，元素不会重复，可知从start无重复访问所有元素
-
-
 		*/
 		log.Println("------------------", start)
 		current := (start + k) % numsLen
