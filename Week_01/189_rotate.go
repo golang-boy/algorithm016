@@ -1,5 +1,7 @@
 package Week_01
 
+import "log"
+
 //189. 旋转数组
 func rotate1(nums []int, k int) {
 	numsLen := len(nums)
