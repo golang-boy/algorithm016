@@ -20,8 +20,19 @@
 
 虽然数组具有高速访问数据的特性，但是删除上的性能过低，无法直接用于当做队列结构，可以封装成环来充当队列
 
-#### 1.2链表
+##### 1.2链表
 链表的处理尽量加上哨兵来简化操作
 
-#### 1.3跳表
+##### 1.3跳表
 跳表主要麻烦在插入，删除节点的处理，处理不好会导致导致高层节点间的元素不均衡，会导致查询时间复杂度退化到o(n)
+
+#### 二，题解
+
+##### [142，环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/?utm_source=LCUS&utm_medium=ip_redirect_q_uns&utm_campaign=transfer2china)
+思路：从head同时放出一个快指针step=2,慢指针step=1,在fast，slow相遇时，放出另外一个step=1的指针，当slow与third指针相遇时即为环入口
+关键证明点：
+当pos1位于环h位置，环有c个节点，pos2位于0位置，pos1 step=2,pos2 step =1,在c-h的位置pos1与pos2重合
+设pos1=h,pos2=0,进过x次移动，pos1与pos2重合
+h+2x = x+kc(k为自然数)
+当k=0时，h+x=0 可得h,x都为0才能满足
+当k=1事，为普通情况第一次相遇，h+2x = x+c即得x=c-h
