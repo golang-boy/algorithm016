@@ -22,3 +22,21 @@ func swapPairs(head *ListNode) *ListNode {
 
 	return sentinel.Next
 }
+
+func swapPairs2(head *ListNode) *ListNode {
+	sentinel := &ListNode{
+		0, head,
+	}
+	current := sentinel
+
+	for current.Next != nil && current.Next.Next != nil {
+		next := current.Next
+		nnext := current.Next.Next
+		current.Next = nnext
+		next.Next = nnext.Next
+		nnext.Next = next
+		current = current.Next.Next
+	}
+
+	return sentinel.Next
+}
