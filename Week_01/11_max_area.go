@@ -31,3 +31,22 @@ func maxArea(height []int) int {
 
 	return maxValue
 }
+
+func maxArea2(height []int) (area int) {
+	count := len(height)
+	if count < 2 {
+		return
+	}
+
+	start, end := 0, count-1
+	for start < end {
+		area = maxInt(area, (end-start)*minInt(height[start], height[end]))
+		if height[start] <= height[end] {
+			start++
+		} else {
+			end--
+		}
+	}
+
+	return
+}
