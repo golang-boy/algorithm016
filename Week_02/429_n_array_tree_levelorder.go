@@ -1,18 +1,15 @@
 package Week_02
 
 type Node struct {
-	Val int
+	Val      int
 	Children []*Node
 }
-
-ans := [][]int{}
 
 func levelOrder(root *Node) [][]int {
 
 	if root == nil {
 		return nil
 	}
-
 	m := map[int][]int{}
 	m[0] = []int{root.Val}
 
@@ -20,7 +17,7 @@ func levelOrder(root *Node) [][]int {
 
 	ans := [][]int{}
 
-	for i:=0; i<len(m);i++{
+	for i := 0; i < len(m); i++ {
 		ans = append(ans, m[i])
 	}
 
@@ -34,6 +31,6 @@ func bfs(root *Node, level int, m map[int][]int) {
 
 	for _, n := range root.Children {
 		m[level] = append(m[level], n.Val)
-	    bfs(n, level+1, m)
+		bfs(n, level+1, m)
 	}
 }
